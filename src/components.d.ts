@@ -21,6 +21,10 @@ export namespace Components {
         "middle": string;
     }
     interface StarRatingComponent {
+        /**
+          * Number of stars to display. Default: 5
+         */
+        "stars": number;
     }
 }
 declare global {
@@ -57,6 +61,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface StarRatingComponent {
+        /**
+          * Number of stars to display. Default: 5
+         */
+        "stars"?: number;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
