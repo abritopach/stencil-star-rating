@@ -5,22 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Size } from "./enums/enums";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface StarRatingComponent {
+        /**
+          * The size of the stars. Options: small, medium, large Default: medium
+         */
+        "size": Size;
         /**
           * Number of stars to display. Default: 5
          */
@@ -28,12 +19,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLStarRatingComponentElement extends Components.StarRatingComponent, HTMLStencilElement {
     }
     var HTMLStarRatingComponentElement: {
@@ -41,33 +26,21 @@ declare global {
         new (): HTMLStarRatingComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "star-rating-component": HTMLStarRatingComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface StarRatingComponent {
+        /**
+          * The size of the stars. Options: small, medium, large Default: medium
+         */
+        "size"?: Size;
         /**
           * Number of stars to display. Default: 5
          */
         "stars"?: number;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "star-rating-component": StarRatingComponent;
     }
 }
@@ -75,7 +48,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "star-rating-component": LocalJSX.StarRatingComponent & JSXBase.HTMLAttributes<HTMLStarRatingComponentElement>;
         }
     }

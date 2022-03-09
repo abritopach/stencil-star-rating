@@ -1,3 +1,15 @@
 :host {
   display: block;
 }
+
+.size-small {
+  zoom: 1;
+}
+
+.size-medium {
+  zoom: 2;
+}
+
+.size-large {
+  zoom: 3;
+}
