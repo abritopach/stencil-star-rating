@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, Host, h, Prop, State } from '@stencil/core';
 import { Size } from '../../enums/enums';
 
 @Component({
@@ -7,6 +7,8 @@ import { Size } from '../../enums/enums';
   shadow: true,
 })
 export class StarRatingComponent {
+
+  @State() currentRating: number;
 
   /**
    * Number of stars to display.
@@ -21,8 +23,11 @@ export class StarRatingComponent {
   */
   @Prop() size: Size = Size.MEDIUM;
 
+  private starsSelected: Array<boolean>;
+
   componentWillLoad() {
     console.log('StarRatingComponent::componentWillLoad method called');
+    this.starsSelected = new Array<boolean>(this.stars).fill(false);
   }
 
 
@@ -34,12 +39,21 @@ export class StarRatingComponent {
     return (
       <Host>
         {
-          Array.from(Array(this.stars).keys()).map(_ => (
-            <ion-icon class={`size-${this.size}`} name="star-outline"></ion-icon>
+          Array.from(Array(this.stars).keys()).map((_, index) => (
+            <ion-icon
+              class={`size-${this.size}`}
+              name={`${this.starsSelected[index] ? 'star' : 'star-outline'}`}
+              onClick={_ => this.onClickStarHandler(index)}>
+            </ion-icon>
           ))
         }
       </Host>
     );
   }
 
+  private onClickStarHandler(starIndex: number) {
+    console.log('StarRatingComponent::onClickStarHandler method called with clicked star: ', starIndex);
+    this.starsSelected[starIndex] = !this.starsSelected[starIndex];
+    console.log('starsSelected: ', this.starsSelected);
+  }
 }
