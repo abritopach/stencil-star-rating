@@ -13,3 +13,20 @@
 .size-large {
   zoom: 3;
 }
+
+ion-icon.danger {
+  color: #ef5350;
+}
+
+ion-icon.warning {
+  color: #ffbb33;
+}
+
+ion-icon.success{
+  color: #00C851;
+}
+
+ion-icon.info {
+  color: #33b5e5;
+}
+

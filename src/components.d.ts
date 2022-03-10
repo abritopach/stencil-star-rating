@@ -5,9 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Size } from "./enums/enums";
+import { Color, Size } from "./enums/enums";
 export namespace Components {
     interface StarRatingComponent {
+        /**
+          * Possible color for the stars. Options: default, negative, ok, positive Default:
+         */
+        "color": Color;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
          */
@@ -31,6 +35,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface StarRatingComponent {
+        /**
+          * Possible color for the stars. Options: default, negative, ok, positive Default:
+         */
+        "color"?: Color;
+        "onRatingChange"?: (event: CustomEvent<number>) => void;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
          */

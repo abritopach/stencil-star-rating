@@ -1,5 +1,5 @@
-import { Component, Host, h, Prop, State } from '@stencil/core';
-import { Size } from '../../enums/enums';
+import { Component, Host, h, Prop, State, Event, EventEmitter } from '@stencil/core';
+import { Color, Size } from '../../enums/enums';
 import { Star } from '../../models/start.model';
 
 @Component({
@@ -22,18 +22,21 @@ export class StarRatingComponent {
   */
   @Prop() size: Size = Size.MEDIUM;
 
+  /**
+  * Possible color for the stars.
+  * Options: default, negative, ok, positive
+  * Default:
+  */
+    @Prop() color: Color = Color.WARNING;
+
   @State() currentRating: number;
   @State() starsSelected: Array<Star>;
 
+  @Event() ratingChange: EventEmitter<number>;
+
   componentWillLoad() {
-    console.log('StarRatingComponent::componentWillLoad method called');
     const defaultStar: Star = {selected: false, value: 0};
     this.starsSelected = new Array<Star>(this.stars).fill(defaultStar);
-  }
-
-
-  componentDidLoad() {
-    console.log('StarRatingComponent::componentDidLoad method called');
   }
 
   render() {
@@ -42,7 +45,7 @@ export class StarRatingComponent {
         {
           Array.from(Array(this.stars).keys()).map((_, index) => (
             <ion-icon
-              class={`size-${this.size}`}
+              class={`size-${this.size} ${this.color}`}
               name={this.starsSelected[index].selected ? 'star' : 'star-outline'}
               onClick={_ => this.onClickStarHandler(index)}>
             </ion-icon>
@@ -53,10 +56,13 @@ export class StarRatingComponent {
   }
 
   private onClickStarHandler(starIndex: number) {
-    console.log('StarRatingComponent::onClickStarHandler method called with clicked star: ', starIndex);
-    const starSelected = {...this.starsSelected[starIndex], selected: !this.starsSelected[starIndex].selected,
-    value: this.starsSelected[starIndex].selected ? 0 : 1};
-    this.starsSelected = [...this.starsSelected.slice(0, starIndex), starSelected, ...this.starsSelected.slice(starIndex + 1)];
-    console.log('starsSelected: ', this.starsSelected);
+    const starsToUpdate = this.starsSelected.filter((_, index) => index <= starIndex).map(star => {
+      return {...star, selected: true, value: 1};
+    });
+    const otherStars = this.starsSelected.slice(starIndex + 1).map(star => {
+      return {...star, selected: false, value: 0};
+    });
+    this.starsSelected = [...starsToUpdate, ...otherStars];
+    this.ratingChange.emit(this.starsSelected.reduce((acc, star) => acc + star.value, 0));
   }
 }
