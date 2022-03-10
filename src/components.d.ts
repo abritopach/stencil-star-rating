@@ -9,9 +9,13 @@ import { Color, Size } from "./enums/enums";
 export namespace Components {
     interface StarRatingComponent {
         /**
-          * Possible color for the stars. Options: default, negative, ok, positive Default:
+          * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color": Color;
+        /**
+          * The actual star rating value. Default: 0
+         */
+        "rating": number;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
          */
@@ -36,10 +40,14 @@ declare global {
 declare namespace LocalJSX {
     interface StarRatingComponent {
         /**
-          * Possible color for the stars. Options: default, negative, ok, positive Default:
+          * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color"?: Color;
         "onRatingChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * The actual star rating value. Default: 0
+         */
+        "rating"?: number;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
          */

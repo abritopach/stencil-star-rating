@@ -12,7 +12,7 @@
   "unpkg": "dist/stencil-star-rating/stencil-star-rating.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/abritopach/stencil-star-rating"
   },
   "files": [
     "dist/",

@@ -24,10 +24,16 @@ export class StarRatingComponent {
 
   /**
   * Possible color for the stars.
-  * Options: default, negative, ok, positive
-  * Default:
+  * Options: danger, warning, success and info
+  * Default: warning
   */
-    @Prop() color: Color = Color.WARNING;
+  @Prop() color: Color = Color.WARNING;
+
+  /**
+  * The actual star rating value.
+  * Default: 0
+  */
+  @Prop() rating: number = 0;
 
   @State() currentRating: number;
   @State() starsSelected: Array<Star>;
@@ -37,6 +43,11 @@ export class StarRatingComponent {
   componentWillLoad() {
     const defaultStar: Star = {selected: false, value: 0};
     this.starsSelected = new Array<Star>(this.stars).fill(defaultStar);
+    if (this.rating !== 0) {
+      this.starsSelected = [...this.starsSelected.map((star, index) => {
+        return (index < this.rating) ? {...star, selected: true, value: 1} : {...star, selected: false, value: 0};
+      })];
+    }
   }
 
   render() {
