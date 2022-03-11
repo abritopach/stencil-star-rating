@@ -1,7 +1,8 @@
 {
-  "name": "stencil-star-rating",
+  "name": "star-rating-component",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "⭐ Star Rating Component is a standalone Web Component made with ❤️ and built 🛠 with Stencil (a framework-agnostic web component that works in Ionic, Angular, React, Vue, Remix, Vanilla javascript,.... ⭐",
+  "author": "Adrián Brito Pacheco",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -13,6 +14,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/abritopach/stencil-star-rating"
+  },
+  "bugs": {
+    "url": "https://github.com/abritopach/stencil-star-rating/issues"
   },
   "files": [
     "dist/",
