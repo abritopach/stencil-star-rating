@@ -17,6 +17,10 @@ export namespace Components {
          */
         "rating": number;
         /**
+          * readOnly: boolean. The onClick callback is disabled. Default: false
+         */
+        "readonly": boolean;
+        /**
           * The size of the stars. Options: small, medium, large Default: medium
          */
         "size": Size;
@@ -25,7 +29,7 @@ export namespace Components {
          */
         "stars": number;
         /**
-          * The step interval of the control Default: 1
+          * The step interval of the stars. Default: 1
          */
         "step": number;
     }
@@ -53,6 +57,10 @@ declare namespace LocalJSX {
          */
         "rating"?: number;
         /**
+          * readOnly: boolean. The onClick callback is disabled. Default: false
+         */
+        "readonly"?: boolean;
+        /**
           * The size of the stars. Options: small, medium, large Default: medium
          */
         "size"?: Size;
@@ -61,7 +69,7 @@ declare namespace LocalJSX {
          */
         "stars"?: number;
         /**
-          * The step interval of the control Default: 1
+          * The step interval of the stars. Default: 1
          */
         "step"?: number;
     }

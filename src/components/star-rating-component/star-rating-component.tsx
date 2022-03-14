@@ -36,10 +36,17 @@ export class StarRatingComponent {
   @Prop() rating: number = 0;
 
   /**
-   * The step interval of the control
+   * The step interval of the stars.
    * Default: 1
    */
   @Prop() step: number = 1;
+
+  /**
+  * readOnly: boolean.
+  * The onClick callback is disabled.
+  * Default: false
+  */
+  @Prop() readonly: boolean = false;
 
   @State() currentRating: number;
   @State() starsSelected: Array<Star>;
@@ -64,7 +71,7 @@ export class StarRatingComponent {
             <ion-icon
               class={`size-${this.size} ${this.color}`}
               name={this.starsSelected[index].selected ? 'star' : 'star-outline'}
-              onClick={_ => this.onClickStarHandler(index)}>
+              onClick={_ => this.readonly ? null : this.onClickStarHandler(index)}>
             </ion-icon>
           ))
         }
