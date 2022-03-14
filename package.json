@@ -1,6 +1,6 @@
 {
   "name": "@abritopach/star-rating-webcomponent",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "⭐ Star Rating Component is a standalone Web Component made with ❤️ and built 🛠 with Stencil (a framework-agnostic web component that works in Ionic, Angular, React, Vue, Remix, Vanilla javascript,.... ⭐",
   "author": "Adrián Brito Pacheco",
   "main": "dist/index.cjs.js",
