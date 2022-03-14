@@ -7,12 +7,14 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                               | Type                                                           | Default         |
-| -------- | --------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------- |
-| `color`  | `color`   | Possible color for the stars. Options: danger, warning, success and info Default: warning | `Color.DANGER \| Color.INFO \| Color.SUCCESS \| Color.WARNING` | `Color.WARNING` |
-| `rating` | `rating`  | The actual star rating value. Default: 0                                                  | `number`                                                       | `0`             |
-| `size`   | `size`    | The size of the stars. Options: small, medium, large Default: medium                      | `Size.LARGE \| Size.MEDIUM \| Size.SMALL`                      | `Size.MEDIUM`   |
-| `stars`  | `stars`   | Number of stars to display. Default: 5                                                    | `number`                                                       | `5`             |
+| Property   | Attribute  | Description                                                                               | Type                                                           | Default         |
+| ---------- | ---------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------- |
+| `color`    | `color`    | Possible color for the stars. Options: danger, warning, success and info Default: warning | `Color.DANGER \| Color.INFO \| Color.SUCCESS \| Color.WARNING` | `Color.WARNING` |
+| `rating`   | `rating`   | The actual star rating value. Default: 0                                                  | `number`                                                       | `0`             |
+| `readonly` | `readonly` | readOnly: boolean. The onClick callback is disabled. Default: false                       | `boolean`                                                      | `false`         |
+| `size`     | `size`     | The size of the stars. Options: small, medium, large Default: medium                      | `Size.LARGE \| Size.MEDIUM \| Size.SMALL`                      | `Size.MEDIUM`   |
+| `stars`    | `stars`    | Number of stars to display. Default: 5                                                    | `number`                                                       | `5`             |
+| `step`     | `step`     | The step interval of the stars. Default: 1                                                | `number`                                                       | `1`             |
 
 
 ## Events
