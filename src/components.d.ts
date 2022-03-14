@@ -24,6 +24,10 @@ export namespace Components {
           * Number of stars to display. Default: 5
          */
         "stars": number;
+        /**
+          * The step interval of the control Default: 1
+         */
+        "step": number;
     }
 }
 declare global {
@@ -56,6 +60,10 @@ declare namespace LocalJSX {
           * Number of stars to display. Default: 5
          */
         "stars"?: number;
+        /**
+          * The step interval of the control Default: 1
+         */
+        "step"?: number;
     }
     interface IntrinsicElements {
         "star-rating-component": StarRatingComponent;

@@ -35,6 +35,12 @@ export class StarRatingComponent {
   */
   @Prop() rating: number = 0;
 
+  /**
+   * The step interval of the control
+   * Default: 1
+   */
+  @Prop() step: number = 1;
+
   @State() currentRating: number;
   @State() starsSelected: Array<Star>;
 
@@ -45,7 +51,7 @@ export class StarRatingComponent {
     this.starsSelected = new Array<Star>(this.stars).fill(defaultStar);
     if (this.rating !== 0) {
       this.starsSelected = [...this.starsSelected.map((star, index) => {
-        return (index < this.rating) ? {...star, selected: true, value: 1} : {...star, selected: false, value: 0};
+        return (index < this.rating) ? {...star, selected: true, value: this.step} : {...star, selected: false, value: 0};
       })];
     }
   }
@@ -68,7 +74,7 @@ export class StarRatingComponent {
 
   private onClickStarHandler(starIndex: number) {
     const starsToUpdate = this.starsSelected.filter((_, index) => index <= starIndex).map(star => {
-      return {...star, selected: true, value: 1};
+      return {...star, selected: true, value: this.step};
     });
     const otherStars = this.starsSelected.slice(starIndex + 1).map(star => {
       return {...star, selected: false, value: 0};
