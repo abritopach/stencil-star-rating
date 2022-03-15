@@ -52,6 +52,7 @@ export class StarRatingComponent {
   @State() starsSelected: Array<Star>;
 
   @Event() ratingChange: EventEmitter<number>;
+  @Event() starClicked: EventEmitter<Star & {star: number}>;
 
   componentWillLoad() {
     const defaultStar: Star = {selected: false, value: 0};
@@ -88,5 +89,6 @@ export class StarRatingComponent {
     });
     this.starsSelected = [...starsToUpdate, ...otherStars];
     this.ratingChange.emit(this.starsSelected.reduce((acc, star) => acc + star.value, 0));
+    this.starClicked.emit({...this.starsSelected[starIndex], star: starIndex + 1});
   }
 }

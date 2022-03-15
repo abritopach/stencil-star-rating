@@ -14,6 +14,7 @@
     <script>
       const starRatingComponentElement = document.querySelector('star-rating-component');
       starRatingComponentElement.addEventListener('ratingChange', event => { console.log('New rating: ', event.detail); });
+      starRatingComponentElement.addEventListener('starClicked', event => { console.log('Start clicked: ', event.detail); });
     </script>
   </body>
 </html>

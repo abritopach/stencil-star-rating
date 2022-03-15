@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, Size } from "./enums/enums";
+import { Star } from "./models/start.model";
 export namespace Components {
     interface StarRatingComponent {
         /**
@@ -52,6 +53,7 @@ declare namespace LocalJSX {
          */
         "color"?: Color;
         "onRatingChange"?: (event: CustomEvent<number>) => void;
+        "onStarClicked"?: (event: CustomEvent<Star & {star: number}>) => void;
         /**
           * The actual star rating value. Default: 0
          */
