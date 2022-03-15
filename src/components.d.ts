@@ -6,13 +6,17 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, Size } from "./enums/enums";
-import { Star } from "./models/start.model";
+import { Label, Star } from "./models/start.model";
 export namespace Components {
     interface StarRatingComponent {
         /**
           * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color": Color;
+        /**
+          * Text to be displayed next to the stars. Default: null
+         */
+        "label": Label;
         /**
           * The actual star rating value. Default: 0
          */
@@ -52,6 +56,10 @@ declare namespace LocalJSX {
           * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color"?: Color;
+        /**
+          * Text to be displayed next to the stars. Default: null
+         */
+        "label"?: Label;
         "onRatingChange"?: (event: CustomEvent<number>) => void;
         "onStarClicked"?: (event: CustomEvent<Star & {star: number}>) => void;
         /**

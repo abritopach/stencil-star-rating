@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, State, Event, EventEmitter } from '@stencil/core';
 import { Color, Size } from '../../enums/enums';
-import { Star } from '../../models/start.model';
+import { Label, Star } from '../../models/start.model';
 
 @Component({
   tag: 'star-rating-component',
@@ -40,6 +40,12 @@ export class StarRatingComponent {
    * Default: 1
    */
   @Prop() step: number = 1;
+
+  /**
+   * Text to be displayed next to the stars.
+   * Default: null
+   */
+  @Prop() label: Label = null;
 
   /**
   * readOnly: boolean.
