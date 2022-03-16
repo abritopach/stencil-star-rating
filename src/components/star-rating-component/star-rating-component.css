@@ -30,3 +30,19 @@ ion-icon.info {
   color: #33b5e5;
 }
 
+gap-extra-small {
+  margin-right: 2px;
+}
+
+.gap-small {
+  margin-right: 5px;
+}
+
+.gap-medium {
+  margin-right: 10px;
+}
+
+.gap-large {
+  margin-right: 20px;
+}
+

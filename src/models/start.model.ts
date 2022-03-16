@@ -1,9 +1,4 @@
-enum LabelPosition {
-    TOP = 'top',
-    RIGHT = 'right',
-    BOTTOM = 'bottom',
-    LEFT = 'left'
-}
+import { LabelPosition } from "../enums/enums";
 
 export interface Star {
     value: number;

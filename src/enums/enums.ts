@@ -10,3 +10,18 @@ export enum Color {
     SUCCESS = 'success',
     INFO = 'info'
 }
+
+export enum LabelPosition {
+    TOP = 'top',
+    RIGHT = 'right',
+    BOTTOM = 'bottom',
+    LEFT = 'left'
+}
+
+export enum Gap {
+    DEFAULT = 'default',
+    EXTRA_SMALL = 'extra-small',
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    LARGE = 'large'
+}

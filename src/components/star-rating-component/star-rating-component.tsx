@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, State, Event, EventEmitter } from '@stencil/core';
-import { Color, Size } from '../../enums/enums';
+import { Color, Gap, Size } from '../../enums/enums';
 import { Label, Star } from '../../models/start.model';
 
 @Component({
@@ -48,6 +48,13 @@ export class StarRatingComponent {
   @Prop() label: Label = null;
 
   /**
+   * The size of gutters, which is the space between one star and other star.
+   * Default: 1
+   */
+  @Prop() gap: Gap = Gap.DEFAULT;
+
+
+  /**
   * readOnly: boolean.
   * The onClick callback is disabled.
   * Default: false
@@ -76,7 +83,7 @@ export class StarRatingComponent {
         {
           Array.from(Array(this.stars).keys()).map((_, index) => (
             <ion-icon
-              class={`size-${this.size} ${this.color}`}
+              class={`size-${this.size} ${this.color} gap-${this.gap}`}
               name={this.starsSelected[index].selected ? 'star' : 'star-outline'}
               onClick={_ => this.readonly ? null : this.onClickStarHandler(index)}>
             </ion-icon>

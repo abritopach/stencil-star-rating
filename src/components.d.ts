@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Color, Size } from "./enums/enums";
+import { Color, Gap, Size } from "./enums/enums";
 import { Label, Star } from "./models/start.model";
 export namespace Components {
     interface StarRatingComponent {
@@ -13,6 +13,10 @@ export namespace Components {
           * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color": Color;
+        /**
+          * The size of gutters, which is the space between one star and other star. Default: 1
+         */
+        "gap": Gap;
         /**
           * Text to be displayed next to the stars. Default: null
          */
@@ -56,6 +60,10 @@ declare namespace LocalJSX {
           * Possible color for the stars. Options: danger, warning, success and info Default: warning
          */
         "color"?: Color;
+        /**
+          * The size of gutters, which is the space between one star and other star. Default: 1
+         */
+        "gap"?: Gap;
         /**
           * Text to be displayed next to the stars. Default: null
          */
