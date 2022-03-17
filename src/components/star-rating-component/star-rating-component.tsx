@@ -80,15 +80,20 @@ export class StarRatingComponent {
   render() {
     return (
       <Host>
-        {
-          Array.from(Array(this.stars).keys()).map((_, index) => (
-            <ion-icon
-              class={`size-${this.size} ${this.color} gap-${this.gap}`}
-              name={this.starsSelected[index].selected ? 'star' : 'star-outline'}
-              onClick={_ => this.readonly ? null : this.onClickStarHandler(index)}>
-            </ion-icon>
-          ))
-        }
+        <div class="wrap">
+          <span class="wrap-stars">
+          {
+            Array.from(Array(this.stars).keys()).map((_, index) => (
+              <ion-icon
+                class={`size-${this.size} ${this.color} gap-${this.gap}`}
+                name={this.starsSelected[index].selected ? 'star' : 'star-outline'}
+                onClick={_ => this.readonly ? null : this.onClickStarHandler(index)}>
+              </ion-icon>
+            ))
+          }
+          </span>
+          <span class="wrap-label">Bottom label</span>
+        </div>
       </Host>
     );
   }

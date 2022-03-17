@@ -46,3 +46,18 @@ gap-extra-small {
   margin-right: 20px;
 }
 
+.wrap {
+  height: 48px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap>*:first-child {
+  align-self: flex-start;
+}
+
+.wrap .wrap-label {
+  align-self: flex-start;
+}
+
