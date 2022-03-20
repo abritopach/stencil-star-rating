@@ -1,5 +1,5 @@
-import { Component, Host, h, Prop, State, Event, EventEmitter } from '@stencil/core';
-import { Color, Gap, Size } from '../../enums/enums';
+import { Component, Host, h, Prop, State, Event, EventEmitter, Watch } from '@stencil/core';
+import { Color, Gap, LabelPosition, Size } from '../../enums/enums';
 import { Label, Star } from '../../models/start.model';
 
 @Component({
@@ -45,7 +45,7 @@ export class StarRatingComponent {
    * Text to be displayed next to the stars.
    * Default: null
    */
-  @Prop() label: Label = null;
+  @Prop() label: string = null;
 
   /**
    * The size of gutters, which is the space between one star and other star.
@@ -63,11 +63,22 @@ export class StarRatingComponent {
 
   @State() currentRating: number;
   @State() starsSelected: Array<Star>;
+  @State() starsLabel: Label = null;
 
   @Event() ratingChange: EventEmitter<number>;
   @Event() starClicked: EventEmitter<Star & {star: number}>;
 
+  @Watch('label')
+  parseLabelProp(newValue: string) {
+    if (typeof newValue === 'string') {
+      this.starsLabel = JSON.parse(newValue);
+    } else {
+      this.starsLabel = newValue;
+    }
+  }
+
   componentWillLoad() {
+    this.parseLabelProp(this.label);
     const defaultStar: Star = {selected: false, value: 0};
     this.starsSelected = new Array<Star>(this.stars).fill(defaultStar);
     if (this.rating !== 0) {
@@ -80,7 +91,11 @@ export class StarRatingComponent {
   render() {
     return (
       <Host>
-        <div class="wrap">
+        <div class={this.starsLabel?.position === LabelPosition.LEFT || this.starsLabel?.position === LabelPosition.RIGHT
+        ? 'wrap-row' : 'wrap-column'}>
+          { (this.starsLabel?.position === LabelPosition.TOP || this.starsLabel?.position === LabelPosition.LEFT) &&
+            <span class="wrap-label">{ this.starsLabel.text }</span>
+          }
           <span class="wrap-stars">
           {
             Array.from(Array(this.stars).keys()).map((_, index) => (
@@ -92,7 +107,9 @@ export class StarRatingComponent {
             ))
           }
           </span>
-          <span class="wrap-label">Bottom label</span>
+          { (this.starsLabel?.position === LabelPosition.BOTTOM || this.starsLabel?.position === LabelPosition.RIGHT) &&
+            <span class="wrap-label">{ this.starsLabel.text }</span>
+          }
         </div>
       </Host>
     );

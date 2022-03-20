@@ -15,7 +15,8 @@ export enum LabelPosition {
     TOP = 'top',
     RIGHT = 'right',
     BOTTOM = 'bottom',
-    LEFT = 'left'
+    LEFT = 'left',
+    NONE = 'none'
 }
 
 export enum Gap {

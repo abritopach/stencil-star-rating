@@ -46,18 +46,25 @@ gap-extra-small {
   margin-right: 20px;
 }
 
-.wrap {
+.wrap-row {
   height: 48px;
-  width: 300px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 }
 
-.wrap>*:first-child {
-  align-self: flex-start;
+.wrap-column {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .wrap .wrap-label {
-  align-self: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
