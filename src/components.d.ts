@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, Gap, Size } from "./enums/enums";
-import { Star } from "./models/start.model";
+import { Label, Star } from "./models/start.model";
 export namespace Components {
     interface StarRatingComponent {
         /**
@@ -29,6 +29,7 @@ export namespace Components {
           * readOnly: boolean. The onClick callback is disabled. Default: false
          */
         "readonly": boolean;
+        "setLabel": (label: Label) => Promise<void>;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
          */

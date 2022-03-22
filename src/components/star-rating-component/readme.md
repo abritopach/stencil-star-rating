@@ -27,6 +27,19 @@
 | `starClicked`  |             | `CustomEvent<Star & { star: number; }>` |
 
 
+## Methods
+
+### `setLabel(label: Label) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

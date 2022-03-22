@@ -16,6 +16,21 @@
       const starRatingComponentElement = document.querySelector('star-rating-component');
       starRatingComponentElement.addEventListener('ratingChange', event => { console.log('New rating: ', event.detail); });
       starRatingComponentElement.addEventListener('starClicked', event => { console.log('Start clicked: ', event.detail); });
+
+      // NOTE: Uncomment the following code if you want to set the stars label via code
+      /*
+      const starsLabel = {
+        text: 'Label bottom',
+        position: 'bottom'
+      };
+
+      (async () => {
+        await customElements.whenDefined('star-rating-component');
+        if (starRatingComponentElement) {
+          await starRatingComponentElement.setLabel(starsLabel);
+        }
+      })();
+      */
     </script>
   </body>
 </html>
