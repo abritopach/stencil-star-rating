@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, State, Event, EventEmitter, Watch, Method } from '@stencil/core';
 import { Color, Gap, LabelPosition, Size } from '../../enums/enums';
 import { Label, Star } from '../../models/start.model';
 
@@ -75,6 +75,12 @@ export class StarRatingComponent {
     } else {
       this.starsLabel = newValue;
     }
+  }
+
+  // Methods
+  @Method()
+  async setLabel(label: Label) {
+    this.starsLabel = label;
   }
 
   componentWillLoad() {
