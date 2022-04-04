@@ -12,6 +12,8 @@
 
 Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
 
+If you have any doubts, please consult the [official documentation](https://abritopach.github.io/stencil-star-rating)
+
 # Stencil
 
 Stencil is a compiler for building fast web apps using Web Components.
