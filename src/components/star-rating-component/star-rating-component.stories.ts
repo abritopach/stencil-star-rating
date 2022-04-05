@@ -32,8 +32,7 @@ const Template = (args) =>
     color="${args.color}"
     rating="${args.rating}"
     step="${args.step}"
-    gap="${args.gap}"
-    label="${args.label}">
+    gap="${args.gap}">
 </star-rating-component>`;
 
 // Basic example
