@@ -69,11 +69,11 @@ export class StarRatingComponent {
   @Event() starClicked: EventEmitter<Star & {star: number}>;
 
   @Watch('label')
-  parseLabelProp(newValue: string) {
-    if (typeof newValue === 'string') {
+  parseLabelProp(newValue: any) {
+    if ((typeof newValue === 'string') && (newValue !== 'undefined')) {
       this.starsLabel = JSON.parse(newValue);
-    } else {
-      this.starsLabel = newValue;
+    } else if (typeof newValue === 'object') {
+      this.starsLabel = newValue as Label;
     }
   }
 
@@ -132,4 +132,5 @@ export class StarRatingComponent {
     this.ratingChange.emit(this.starsSelected.reduce((acc, star) => acc + star.value, 0));
     this.starClicked.emit({...this.starsSelected[starIndex], star: starIndex + 1});
   }
+
 }

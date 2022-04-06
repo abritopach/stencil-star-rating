@@ -15,12 +15,9 @@ export default {
             options: ['danger', 'warning', 'success', 'info'],
             control: { type: 'select', required: false }
         },
-        label: {
-            name: 'label',
-            type: { name: 'string', required: false },
-            control: {
-                type: null
-            }
+        gap: {
+            options: ['default', 'extra-small', 'small', 'medium', 'large'],
+            control: { type: 'select', required: false }
         }
     },
 };
@@ -32,7 +29,8 @@ const Template = (args) =>
     color="${args.color}"
     rating="${args.rating}"
     step="${args.step}"
-    gap="${args.gap}">
+    gap="${args.gap}"
+    label='${JSON.stringify(args.label)}'>
 </star-rating-component>`;
 
 // Basic example
@@ -89,7 +87,18 @@ ExampleLabel.args = {
     size: 'medium',
     rating: 3,
     step: 0.5,
-    label: '{"text": "Label bottom", "position": "bottom"}',
-    color: 'warning'
+    color: 'warning',
+    label: { text: "Label bottom", position: "bottom"}
 };
 ExampleLabel.storyName = 'Label example';
+
+// Gap example
+export const ExampleGap = Template.bind({});
+ExampleGap.args = {
+    stars: 5,
+    size: 'medium',
+    rating: 3,
+    color: 'info',
+    gap: 'medium'
+};
+ExampleGap.storyName = 'Gap example';
