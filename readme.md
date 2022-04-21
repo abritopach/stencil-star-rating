@@ -12,7 +12,7 @@
 
 Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
 
-If you have any doubts, please consult the [official documentation](https://abritopach.github.io/stencil-star-rating){:target="_blank"}
+If you have any doubts, please consult the [official documentation](https://abritopach.github.io/stencil-star-rating)
 
 # Stencil
 
