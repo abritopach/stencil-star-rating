@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 jobs:
   scan:
-    if: ${{ false }}
     name: audit
     runs-on: ubuntu-latest
     steps:
