@@ -78,6 +78,10 @@ export class StarRatingComponent {
   }
 
   // Methods
+
+  /**
+   * Method to set the label for the stars.
+   */
   @Method()
   async setLabel(label: Label) {
     this.starsLabel = label;
