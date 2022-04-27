@@ -29,6 +29,9 @@ export namespace Components {
           * readOnly: boolean. The onClick callback is disabled. Default: false
          */
         "readonly": boolean;
+        /**
+          * Method to set the label for the stars.
+         */
         "setLabel": (label: Label) => Promise<void>;
         /**
           * The size of the stars. Options: small, medium, large Default: medium
