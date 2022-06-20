@@ -32,27 +32,27 @@
     "build-storybook": "build-storybook -o docs-build"
   },
   "dependencies": {
-    "@stencil/core": "^2.15.2",
-    "ionicons": "^6.0.1"
+    "@stencil/core": "^2.16.1",
+    "ionicons": "^6.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.2",
+    "@babel/core": "^7.18.5",
     "@stencil/eslint-plugin": "^0.4.0",
-    "@storybook/addon-actions": "^6.5.5",
-    "@storybook/addon-essentials": "^6.5.5",
-    "@storybook/addon-links": "^6.5.5",
-    "@storybook/html": "^6.5.5",
-    "@types/jest": "^27.5.1",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@storybook/addon-actions": "^7.0.0-alpha.5",
+    "@storybook/addon-essentials": "^7.0.0-alpha.5",
+    "@storybook/addon-links": "^7.0.0-alpha.5",
+    "@storybook/html": "^7.0.0-alpha.5",
+    "@types/jest": "^28.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^6.4.1",
-    "eslint": "^8.16.0",
+    "eslint": "^8.18.0",
     "eslint-plugin-react": "^7.30.0",
-    "jest": "^28.1.0",
-    "jest-cli": "^28.1.0",
-    "puppeteer": "^14.1.1",
-    "typescript": "^4.7.2"
+    "jest": "^28.1.1",
+    "jest-cli": "^28.1.1",
+    "puppeteer": "^14.4.1",
+    "typescript": "^4.7.4"
   },
   "license": "MIT"
 }
