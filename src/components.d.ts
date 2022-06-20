@@ -47,6 +47,10 @@ export namespace Components {
         "step": number;
     }
 }
+export interface StarRatingComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLStarRatingComponentElement;
+}
 declare global {
     interface HTMLStarRatingComponentElement extends Components.StarRatingComponent, HTMLStencilElement {
     }
@@ -72,8 +76,8 @@ declare namespace LocalJSX {
           * Text to be displayed next to the stars. Default: null
          */
         "label"?: string;
-        "onRatingChange"?: (event: CustomEvent<number>) => void;
-        "onStarClicked"?: (event: CustomEvent<Star & {star: number}>) => void;
+        "onRatingChange"?: (event: StarRatingComponentCustomEvent<number>) => void;
+        "onStarClicked"?: (event: StarRatingComponentCustomEvent<Star & {star: number}>) => void;
         /**
           * The actual star rating value. Default: 0
          */
